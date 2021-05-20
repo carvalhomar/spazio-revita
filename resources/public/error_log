@@ -1,0 +1,16 @@
+[14-Mar-2021 16:38:32 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit117dd28d91b2092a67a730fcca76dd5e' not found in /home1/spazi164/public_html/laravel/vendor/autoload.php:7
+Stack trace:
+#0 /home1/spazi164/public_html/laravel/public/index.php(34): require()
+#1 {main}
+  thrown in /home1/spazi164/public_html/laravel/vendor/autoload.php on line 7
+[14-Mar-2021 16:38:35 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit117dd28d91b2092a67a730fcca76dd5e' not found in /home1/spazi164/public_html/laravel/vendor/autoload.php:7
+Stack trace:
+#0 /home1/spazi164/public_html/laravel/public/index.php(34): require()
+#1 {main}
+  thrown in /home1/spazi164/public_html/laravel/vendor/autoload.php on line 7
+[14-Mar-2021 16:38:42 America/Fortaleza] PHP Warning:  require(/home1/spazi164/public_html/laravel/vendor/composer/../livewire/livewire/src/helpers.php): failed to open stream: No such file or directory in /home1/spazi164/public_html/laravel/vendor/composer/autoload_real.php on line 71
+[14-Mar-2021 16:38:42 America/Fortaleza] PHP Warning:  require(/home1/spazi164/public_html/laravel/vendor/composer/../livewire/livewire/src/helpers.php): failed to open stream: No such file or directory in /home1/spazi164/public_html/laravel/vendor/composer/autoload_real.php on line 71
+[14-Mar-2021 16:38:42 America/Fortaleza] PHP Fatal error:  require(): Failed opening required '/home1/spazi164/public_html/laravel/vendor/composer/../livewire/livewire/src/helpers.php' (include_path='.:/opt/cpanel/ea-php73/root/usr/share/pear') in /home1/spazi164/public_html/laravel/vendor/composer/autoload_real.php on line 71
+[14-Mar-2021 17:04:25 America/Fortaleza] PHP Warning:  include(/home1/spazi164/public_html/laravel/vendor/composer/../laravel/fortify/src/Features.php): failed to open stream: No such file or directory in /home1/spazi164/public_html/laravel/vendor/composer/ClassLoader.php on line 444
+[14-Mar-2021 17:04:25 America/Fortaleza] PHP Warning:  include(/home1/spazi164/public_html/laravel/vendor/composer/../laravel/fortify/src/Features.php): failed to open stream: No such file or directory in /home1/spazi164/public_html/laravel/vendor/composer/ClassLoader.php on line 444
+[14-Mar-2021 17:04:25 America/Fortaleza] PHP Warning:  include(): Failed opening '/home1/spazi164/public_html/laravel/vendor/composer/../laravel/fortify/src/Features.php' for inclusion (include_path='.:/opt/cpanel/ea-php73/root/usr/share/pear') in /home1/spazi164/public_html/laravel/vendor/composer/ClassLoader.php on line 444
