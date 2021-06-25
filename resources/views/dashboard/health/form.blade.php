@@ -63,6 +63,14 @@
 @endsection
 
 @push('scripts')
+    <script src="//cdn.ckeditor.com/4.16.0/full/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace( 'content', {
+            height:300,
+            filebrowserUploadUrl:"{{ route('ckeditor.upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+        });
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
     <script src="http://malsup.github.com/jquery.form.js"></script>
     <script src="{{ URL::asset('assets/js/content/health/form.js?v=123') }}"></script>

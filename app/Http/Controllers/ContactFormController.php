@@ -13,12 +13,14 @@ class ContactFormController extends Controller
     private $name;
     private $email;
     private $mesage;
+    private $subject;
 
     public function __construct(Request $request)
     {
         $this->name = $request->name;
         $this->email = $request->email;
         $this->mesage = $request->mesage;
+        $this->subject = $request->subject;
     }
 
     public function sendEmail()
@@ -28,6 +30,7 @@ class ContactFormController extends Controller
             'name' => $this->name,
             'email'=> $this->email,
             'mesage' => $this->mesage,
+            'subject' => $this->subject,
         ];
 
         Mail::to( config('mail.from.address'))

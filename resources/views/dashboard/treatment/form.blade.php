@@ -65,7 +65,7 @@
 @push('scripts')
     <script src="//cdn.ckeditor.com/4.16.0/full/ckeditor.js"></script>
     <script>
-        CKEDITOR.replace( 'description', {
+        CKEDITOR.replace( 'content', {
             height:300,
             filebrowserUploadUrl:"{{ route('ckeditor.upload', ['_token' => csrf_token() ])}}",
             filebrowserUploadMethod: 'form'

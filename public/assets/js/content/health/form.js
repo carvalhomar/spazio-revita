@@ -21,11 +21,28 @@ $(function(){
         },
         submitHandler:function(form) {
             $('#btnsave').prop('disabled', true);
+            var data = {};
+            if($('#pageId').val() != undefined){
+                data = {
+                    '_token':$('input[type=hidden][name=_token]').val(),
+                    'pageId': $('#pageId').val(),
+                    'pageType': $('#pageType').val(),
+                    'title': $('#title').val(),
+                    'content': CKEDITOR.instances['content'].getData(),
+                };
+            }else{
+                data = {
+                    '_token':$('input[type=hidden][name=_token]').val(),
+                    'title': $('#title').val(),
+                    'pageType': $('#pageType').val(),
+                    'content': CKEDITOR.instances['content'].getData(),
+                };
+            }
             //console.log('entrei no evento click');
             $.ajax({
                 method:"POST",
                 url:"/content/treatment/store",
-                data:$('#formHealth').serialize(),
+                data:data,
                 success: function(response){
 
                     msgAlert= '<div class="alert alert-'+response.status+'" role="alert">';

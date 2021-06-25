@@ -9,6 +9,7 @@
 <body>
     <h1>{{ $details['title'] }}</h1>
     <p><strong>Nome:</strong>{{ $details['name'] }}</p>
+    <p><strong>Assunto:</strong>{{ $details['subject'] }}</p>
     <p><strong>E-mail:</strong>{{ $details['email'] }}</p>
     <p><strong>Mensagem:</strong>{{ $details['mesage'] }}</p>
 </body>
