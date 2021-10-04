@@ -79,14 +79,16 @@
 
                                 <h4>Dr. Honório Sampaio Menezes</h4>
 
-                                <p>Médico Responsável</p>
+                                <p>Responsável Técnico</p>
 
 {{--                            /</div>--}}
 
                             <div>
 
                                 <p>
-                                    Professor Doutor Honório Sampaio Menezes, médico pós-graduado em Medicina Estética, médico pós-graduado em Dermatologia. Formado UFSM-80, Residencia, Mestrado, Doutorado. Former Researcher Associate Baylor College of Medicine, Houston, Texas.
+                                    CRMRS 11.342<br/>
+                                    CRMSP 138615<br/>
+                                    RQE 1377 RS
                                 </p>
 
                             </div>

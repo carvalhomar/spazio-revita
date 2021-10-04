@@ -6,18 +6,18 @@
 
         <div class="row">
 
-            <div class="col-md-4">
+            <div class="col-md-3">
 
                 <div class="foot-logo">
 {{--                    <img src="{{ URL::asset('assets/images/logo-revita.png') }}" class="mt-2" alt="">--}}
                     <h5  class="footer-title">Spazio Revita</h5>
                 </div>
 
-                <p class="mt-4 text-left ftr-about"></p>
+                <p class="mt-3 text-left ftr-about"></p>
 
-                <div class="mt-4">
+                <div class="mt-3">
 
-                    <ul class="footer-social list-inline mt-4">
+                    <ul class="footer-social list-inline mt-3">
 
                         <li class="list-inline-item">
                             <a href="https://api.whatsapp.com/send?phone=5551996533530&text=" class="social-icon" style="padding-top: 10px;">
@@ -54,7 +54,7 @@
 
             </div>
 
-            <div class="col-md-4 col-sm-4">
+            <div class="col-md-3 col-sm-3">
 
                 <h5 class="footer-title">Links</h5>
 
@@ -73,9 +73,35 @@
 
             </div>
 
+            <div class="col-md-3 col-sm-3">
+
+                <h5 class="footer-title">Aviso Legal</h5>
+
+                <ul class="footer-menu list-unstyled mb-0 mt-4">
+
+                    <li>
+                        <a href="#">
+                            <h6>Responsável Técnico Dr. Honório Sampaio Menezes
+                                CRMSP 138615 – CRMRS 11342</h6>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <p>
+                                Os dados aqui contidos não são aconselhamento, são informações somente de caráter informativo.
+                                As informações não devem ser usadas para automedicação, autodiagnóstico e autotratamento.
+                            </p>
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
 
 
-            <div class="col-md-4 col-sm-4">
+
+            <div class="col-md-3 col-sm-3">
 
                 <h5 class="footer-title">Contato</h5>
 
