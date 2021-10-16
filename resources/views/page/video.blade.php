@@ -17,52 +17,40 @@
 
         </div>
         <div class="row">
-
             <div class="col-md-6 wow fadeInUp">
-
-                <div class="card" style="width: 35rem; margin-bottom: 10px;">
-                    <a href="https://youtu.be/1irNAQEabu4" target="_blank">
-                        <img class="card-img-top" src="{{ URL::asset('assets/images/videos/depilacao-luz-laser.png')}}" alt="">
+                <div class="card" style="width: 35rem;">
+                    <a href="https://youtu.be/BpzoV6Ds7wU" target="_blank">
+                        <img class="card-img-top" src="{{ URL::asset('assets/images/videos/bioplastia-gluteos.png')}}" alt="">
                     </a>
                 </div>
-
-
             </div>
-            <div class="col-md-6 wow fadeInUp">
 
-                <div class="card" style="width: 35rem; margin-bottom: 10px;">
-                    <a href="https://youtu.be/Cy6DaErkke4" target="_blank">
-                        <img class="card-img-top" src="{{ URL::asset('assets/images/videos/perguntas-respostas.png')}}" alt="">
+            <div class="col-md-6 wow fadeInUp">
+                <div class="card" style="width: 35rem;">
+                    <a href="https://youtu.be/ksZCAwBXw34" target="_blank">
+                        <img class="card-img-top" src="{{ URL::asset('assets/images/videos/conhecendo-depilacao-laser.png')}}" alt="">
                     </a>
                 </div>
-
-
             </div>
         </div>
+        <br/>
         <div class="row">
             <div class="col-md-6 wow fadeInUp">
-
-                <div class="card" style="width: 35rem; margin-bottom: 10px;">
-                    <a href="https://youtu.be/d04pZEcJruk" target="_blank">
-                        <img class="card-img-top" src="{{ URL::asset('assets/images/videos/preenchimento-rugas.png')}}" alt="">
-                    </a>
-                </div>
-
-
-            </div>
-            <div class="col-md-6 wow fadeInUp">
-
                 <div class="card" style="width: 35rem;">
-                    <a href="https://youtu.be/rYmAf-uwBoc" target="_blank">
-                        <img class="card-img-top" src="{{ URL::asset('assets/images/videos/rugas-de-expressao.png')}}" alt="">
+                    <a href="https://youtu.be/cMqAOWfsXcA" target="_blank">
+                        <img class="card-img-top" src="{{ URL::asset('assets/images/videos/preenchimento-rugas2.png')}}" alt="">
                     </a>
                 </div>
-
-
             </div>
 
+            <div class="col-md-6 wow fadeInUp">
+                <div class="card" style="width: 35rem;">
+                    <a href="https://youtu.be/X8L5HzSgMCk" target="_blank">
+                        <img class="card-img-top" src="{{ URL::asset('assets/images/videos/bioplastia-geral.png')}}" alt="">
+                    </a>
+                </div>
+            </div>
         </div>
-
     </div>
 
 </section>
