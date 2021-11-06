@@ -4,9 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\UserType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class UserTypeController extends Controller
 {
+    public function __construct()
+    {
+        if (!Session::has('user')) {
+            return redirect()->route('login');
+        }
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,6 +21,7 @@ class UserTypeController extends Controller
      */
     public function index()
     {
+
         $usertype = UserType::all();
         return json_decode($usertype);
     }

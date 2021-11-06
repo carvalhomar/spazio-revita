@@ -5,9 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
+
+    public function __construct()
+    {
+        if (!Session::has('user')) {
+            return redirect()->route('login');
+        }
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +23,7 @@ class UserController extends Controller
      */
     public function index()
     {
+
         //load all data from the users table
         $users = User::select(['user.name', 'user.user', 'user.email', 'user.id', 'usertype.type'])->join('usertype', 'user.usertype_id', '=', 'usertype.id')->get();
         return view('dashboard.user')->with('users', $users);

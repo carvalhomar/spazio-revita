@@ -7,9 +7,17 @@ use App\Models\Blog;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class ContentController extends Controller
 {
+    public function __construct()
+    {
+        if (!Session::has('user')) {
+            return redirect()->route('login');
+        }
+    }
+
     public function loadTreatment()
     {
         $page = Pages::where('page.pt_id', 1)->get();

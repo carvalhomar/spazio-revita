@@ -7,12 +7,15 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Access\Response;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
     public function __construct()
     {
-        session_start();
+        if (!Session::has('user')) {
+            return redirect()->route('login');
+        }
     }
     /**
      * Handle an authentication attempt.
