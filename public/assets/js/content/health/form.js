@@ -38,7 +38,6 @@ $(function(){
                     'content': CKEDITOR.instances['content'].getData(),
                 };
             }
-            //console.log('entrei no evento click');
             $.ajax({
                 method:"POST",
                 url:"/content/treatment/store",
@@ -75,7 +74,7 @@ $(function(){
             dataType: 'json',
             url:'/content/treatment/load/'+window.location.href.split('/')[6],
             success: (response)=>{
-                console.log(response);
+
                 $('#formHealth').append('<input type="hidden" id="pageId" name="pageId" value="'+response.id+'">');
                 $('#title').val(response.title);
                 $('#content').val(response.content);

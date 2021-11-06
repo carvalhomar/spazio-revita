@@ -73,6 +73,6 @@
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
     <script src="http://malsup.github.com/jquery.form.js"></script>
-    <script src="{{ URL::asset('assets/js/content/treatment/form.js') }}"></script>
+    <script src="{{ URL::asset('assets/js/content/treatment/form.js?v=12') }}"></script>
 
 @endpush

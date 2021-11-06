@@ -42,7 +42,7 @@ $(function(){
             }
 
             $('#btnsave').prop('disabled', true);
-            //console.log('entrei no evento click');
+
             $.ajax({
                 method:"POST",
                 url:"/content/treatment/store",
@@ -69,22 +69,25 @@ $(function(){
 
     });
 
-
     if(window.location.href.split('/')[6] == undefined){
         $('.main-content-label').html('Formulário de Cadastramento de Tratamento');
         $('li.breadcrumb-item.active').html('Cadastrar');
     }else{
         $('.main-content-label').html('Formulário de Alteração de Tratamento');
         $('li.breadcrumb-item.active').html('Alterar');
+
+
         $.ajax({
             type:'GET',
             dataType: 'json',
             url:'/content/treatment/load/'+window.location.href.split('/')[6],
             success: (response)=>{
-                console.log(response);
                 $('#formTreatment').append('<input type="hidden" id="pageId" name="pageId" value="'+response.id+'">');
                 $('#title').val(response.title);
-                CKEDITOR.instances['content'].setData(response.content);
+                setTimeout(()=>{
+                    CKEDITOR.instances['content'].setData(response.content);
+                },1000);
+
 
             }
         })
