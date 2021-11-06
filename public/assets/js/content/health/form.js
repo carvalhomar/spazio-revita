@@ -77,7 +77,9 @@ $(function(){
 
                 $('#formHealth').append('<input type="hidden" id="pageId" name="pageId" value="'+response.id+'">');
                 $('#title').val(response.title);
-                $('#content').val(response.content);
+                setTimeout(()=>{
+                    CKEDITOR.instances['content'].setData(response.content);
+                },1000);
 
             }
         })
