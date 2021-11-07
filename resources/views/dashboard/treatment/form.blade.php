@@ -1,8 +1,4 @@
 @extends('dashboard._template.layout')
-{{ session_start() }}
-@if($_SESSION['name'] == 'undefined')
-    {{ route('login') }}
-@endif
 
 @section('title', 'Revita - Tratamento')
 
