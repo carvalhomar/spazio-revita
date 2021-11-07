@@ -49,7 +49,6 @@ remove = function(item) {
                 data:{ id:$(item).attr("data-id") },
                 url:'/content/blog/remove/'+$(item).attr("data-id"),
                 success: function(response){
-                    //console.log(response);
 
                     tr.fadeOut(400, function() {
                         tr.fadeOut('slow');

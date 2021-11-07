@@ -10,12 +10,7 @@ use Illuminate\Support\Facades\Session;
 class UserController extends Controller
 {
 
-    public function __construct()
-    {
-        if (!Session::has('user')) {
-            return redirect()->route('login');
-        }
-    }
+
     /**
      * Display a listing of the resource.
      *
@@ -23,6 +18,9 @@ class UserController extends Controller
      */
     public function index()
     {
+        if (!Session::has('user')) {
+            return redirect()->route('login');
+        }
 
         //load all data from the users table
         $users = User::select(['user.name', 'user.user', 'user.email', 'user.id', 'usertype.type'])->join('usertype', 'user.usertype_id', '=', 'usertype.id')->get();
@@ -37,6 +35,10 @@ class UserController extends Controller
      */
     public function create()
     {
+        if (!Session::has('user')) {
+            return redirect()->route('login');
+        }
+
         return view('dashboard.user.form');
     }
 
@@ -83,6 +85,10 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+        if (!Session::has('user')) {
+            return redirect()->route('login');
+        }
+
         $data['id'] = $id;
         return view('dashboard.user.form', $data);
     }

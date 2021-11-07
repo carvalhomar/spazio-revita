@@ -8,12 +8,7 @@ use Illuminate\Support\Facades\Session;
 
 class UserTypeController extends Controller
 {
-    public function __construct()
-    {
-        if (!Session::has('user')) {
-            return redirect()->route('login');
-        }
-    }
+
     /**
      * Display a listing of the resource.
      *

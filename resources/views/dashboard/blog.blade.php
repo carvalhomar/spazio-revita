@@ -1,8 +1,5 @@
 @extends('dashboard._template.layout')
-{{ session_start() }}
-@if(!isset($_SESSION['name']) && !isset($_SESSION['user']))
-    {{ route('login') }}
-@endif
+
 @section('title', 'Revita - Blog')
 
 @push('style')

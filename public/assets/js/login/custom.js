@@ -1,7 +1,6 @@
 $(function(){
     $('form').on('submit', function(e){
         e.preventDefault();
-        console.log('cliquei no entrar');
 
         $.ajax({
             url:'/login/access',

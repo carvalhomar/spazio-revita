@@ -48,7 +48,6 @@ $(function(){
                     data:{ id:$(item).attr("data-id") },
                     url:'/content/treatment/remove/'+$(item).attr("data-id"),
                     success: function(response){
-                        console.log(response);
 
                         tr.fadeOut(400, function() {
                             tr.fadeOut('slow');

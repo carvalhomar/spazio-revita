@@ -17,11 +17,11 @@
                 </a>
                 <div class="dropdown-menu">
                     <div class="header-navheading">
-                        <h6 class="main-notification-title">{{ $_SESSION['name'] }}</h6>
-                        <p class="main-notification-text">{{ $_SESSION['user'] }}</p>
+                        <h6 class="main-notification-title">{{ \Illuminate\Support\Facades\Session::get('name') }}</h6>
+                        <p class="main-notification-text">{{ \Illuminate\Support\Facades\Session::get('user') }}</p>
                     </div>
 
-                    <a class="dropdown-item" href="/user/edit/{{ $_SESSION['user_id'] }}">
+                    <a class="dropdown-item" href="/user/edit/{{ \Illuminate\Support\Facades\Session::get('user_id')}}">
                         <i class="fe fe-edit"></i> Editar Perfil
                     </a>
 

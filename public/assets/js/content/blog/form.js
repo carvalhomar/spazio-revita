@@ -8,7 +8,7 @@ $(function(){
         method:"GET",
         url:"/content/categories/load",
         success:function (response) {
-            // console.log(response[1].id);
+
             var options = '<option value="">-Selecione-</option>';
 
             $.each (response, function(i, obj){

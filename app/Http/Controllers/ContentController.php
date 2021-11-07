@@ -11,11 +11,14 @@ use Illuminate\Support\Facades\Session;
 
 class ContentController extends Controller
 {
-    public function __construct()
+
+    public function index()
     {
         if (!Session::has('user')) {
             return redirect()->route('login');
         }
+
+        return view('dashboard.content');
     }
 
     public function loadTreatment()
@@ -64,6 +67,7 @@ class ContentController extends Controller
     }
 
     public function showContent($id){
+
         $data = Pages::find($id);
         return view('page.page', compact('data'));
     }
@@ -75,6 +79,10 @@ class ContentController extends Controller
 
     public function getTreatment()
     {
+        if (!Session::has('user')) {
+            return redirect()->route('login');
+        }
+
         //load all data from the page table
         $page = Pages::where('page.pt_id', 1)->get();
         return view('dashboard.treatment')->with('page', $page);
@@ -82,6 +90,10 @@ class ContentController extends Controller
 
     public function getHealth()
     {
+        if (!Session::has('user')) {
+            return redirect()->route('login');
+        }
+
         //load all data from the page table
         $page = Pages::where('page.pt_id', 2)->get();
         return view('dashboard.health')->with('page', $page);
@@ -89,6 +101,10 @@ class ContentController extends Controller
 
     public function getBlog()
     {
+        if (!Session::has('user')) {
+            return redirect()->route('login');
+        }
+
         //load all data from the page table
         $page = Blog::join('category', 'category.id', '=', 'blogs.category_id')->get(['blogs.id AS idblog', 'blogs.title', 'category.*']);
         return view('dashboard.blog')->with('page', $page);
@@ -144,18 +160,30 @@ class ContentController extends Controller
      */
     public function edit($id)
     {
+        if (!Session::has('user')) {
+            return redirect()->route('login');
+        }
+
         $data['id'] = $id;
         return view('dashboard.treatment.form', $data);
     }
 
     public function editHealth($id)
     {
+        if (!Session::has('user')) {
+            return redirect()->route('login');
+        }
+
         $data['id'] = $id;
         return view('dashboard.health.form', $data);
     }
 
     public function editBlog($id)
     {
+        if (!Session::has('user')) {
+            return redirect()->route('login');
+        }
+
         $data['id'] = $id;
         return view('dashboard.blog.form', $data);
     }

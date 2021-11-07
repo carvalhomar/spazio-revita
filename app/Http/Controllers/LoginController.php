@@ -11,12 +11,7 @@ use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
-    public function __construct()
-    {
-        if (!Session::has('user')) {
-            return redirect()->route('login');
-        }
-    }
+
     /**
      * Handle an authentication attempt.
      *
@@ -37,16 +32,20 @@ class LoginController extends Controller
         $name = (new User())->where('user', $user)->value('name');
         $id = (new User())->where('user', $user)->value('id');
 
-        $_SESSION['name'] = $name;
-        $_SESSION['user'] = $user;
-        $_SESSION['user_id'] = $id;
+        //Create any sessions
+        Session::put([
+            'user'=> $user,
+            'name'=> $name,
+            'user_id'=> $id,
+        ]);
 
         return response()->json('success');
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
-        session_destroy();
+        $request->session()->flush();
+
         return redirect()->route('login');
     }
 

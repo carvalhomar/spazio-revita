@@ -109,7 +109,7 @@ $(function(){
             dataType: 'json',
             url:'/user/load/'+window.location.href.split('/')[5],
             success: (response)=>{
-                console.log(response);
+
                 $('#formUser').append('<input type="hidden" id="userId" name="userId" value="'+response.id+'">');
                 $('#name').val(response.name);
                 $('#user').val(response.user);

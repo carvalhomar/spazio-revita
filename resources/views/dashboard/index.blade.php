@@ -1,9 +1,3 @@
-@extends('dashboard._template.layout')
-{{ session_start() }}
-@if(!$_SESSION['name'] && !$_SESSION['user'])
-    {{ route('login') }}
-@endif
-
 @section('title', 'Revita - Dashboard')
 
 @section('titlePage', 'Dashboard')

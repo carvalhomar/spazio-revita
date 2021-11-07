@@ -45,9 +45,7 @@ Route::get('/user/load/{id}', [UserController::class, 'show']);
 Route::get('/user/edit/{id}', [UserController::class, 'edit']);
 Route::post('/user/remove/{id}', [UserController::class, 'destroy']);
 
-Route::get('/content', function (){
-    return view('dashboard.content');
-});
+Route::get('/content', [ContentController::class, 'index']);
 
 Route::get('/content/principal', function (){
     return view('dashboard.banner');
