@@ -23,7 +23,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="img-fadeInRight">
-                                            <img src="{{ URL::asset('assets/images/mulher-madura6.png') }}" />
+                                            <img src="{{ URL::asset('assets/images/carrousel/4.png') }}" style="width:60%" />
                                         </div>
                                     </div>
                                 </div>
@@ -41,7 +41,7 @@
                                             </h2>
 {{--                                            <h1 class="text-white sub-title">Aumente seu pênis</h1>--}}
                                             <p class="para-sec">
-                                                Oferecemos Diversos Tratamentos Corporais para o seu Bem-estar
+                                                Oferecemos Diversos Tratamentos faciais
                                             </p>
                                             <div class="learn-more">
                                                 <a href="https://api.whatsapp.com/send?phone=5551996533530&amp;text=" class="btn btn-white btn-block">Saiba mais</a>
@@ -50,7 +50,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="img-fadeInRight">
-                                            <img src="{{ URL::asset('assets/images/homem-no-esteticista6.png') }}">
+                                            <img src="{{ URL::asset('assets/images/carrousel/1.png') }}" style="width:60%">
                                         </div>
                                     </div>
                                 </div>
@@ -62,11 +62,11 @@
                                     <div class="col-md-6">
                                         <div class="content-fadeInUp">
                                             <h2 class="heading">
-                                                Aumente sua Autoestima
+                                                Tratamentos oferecidos
                                             </h2>
                                             {{--                                            <h1 class="text-white sub-title">Aumente seu pênis</h1>--}}
                                             <p class="para-sec">
-                                                Oferecemos Diversos Tratamentos Faciais para o seu Bem-estar
+                                                Oferecemos Diversos Tratamentos Faciais e corporais
                                             </p>
                                             <div class="learn-more">
                                                 <a href="https://api.whatsapp.com/send?phone=5551996533530&amp;text=" class="btn btn-white btn-block">Saiba mais</a>
@@ -75,7 +75,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="img-fadeInRight">
-                                            <img src="{{ URL::asset('assets/images/medico-examinar6.png') }}" />
+                                            <img src="{{ URL::asset('assets/images/carrousel/3.png') }}" style="width:60%"/>
                                         </div>
                                     </div>
                                 </div>
@@ -91,7 +91,7 @@
                                             </h2>
 {{--                                            <h1 class="text-white sub-title">Aumente seu pênis</h1>--}}
                                             <p class="para-sec">
-                                                Conheça os tratamentos para celulite, flacidez e aumento de glúteos
+                                                Conheça os tratamentos corporais que oferecemos
                                             </p>
                                             <div class="learn-more">
                                                 <a href="https://api.whatsapp.com/send?phone=5551996533530&amp;text=" class="btn btn-white btn-block">Saiba mais</a>
@@ -100,7 +100,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="img-fadeInRight">
-                                            <img src="{{ URL::asset('assets/images/mulher-gordas-pernas-e-nadegas-com-celulite6.png') }}">
+                                            <img src="{{ URL::asset('assets/images/carrousel/2.png') }}" style="width:60%">
                                         </div>
                                     </div>
                                 </div>

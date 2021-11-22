@@ -10,7 +10,7 @@
 
                     <h2>Tratamentos</h2>
 
-                    <p class="section-subtitle mx-auto">Perceba o diferencial de nosso trabalho.</p>
+                    <p class="section-subtitle mx-auto">Veja o que podemos lhe oferecer.</p>
 
                 </div>
 
