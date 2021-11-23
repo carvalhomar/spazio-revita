@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col-md-6 wow fadeInUp">
                 <div class="card" style="width: 35rem;">
-                    <a href="https://youtu.be/BpzoV6Ds7wU" target="_blank">
+                    <a href="https://youtu.be/AUIG2Fbk-uM" target="_blank">
                         <img class="card-img-top" src="{{ URL::asset('assets/images/videos/bio-gluteos-ok.png')}}" alt="">
                     </a>
                 </div>
@@ -27,7 +27,7 @@
 
             <div class="col-md-6 wow fadeInUp">
                 <div class="card" style="width: 35rem;">
-                    <a href="https://youtu.be/ksZCAwBXw34" target="_blank">
+                    <a href="https://youtu.be/coL6w_z-0I8" target="_blank">
                         <img class="card-img-top" src="{{ URL::asset('assets/images/videos/dep-luz-laser-ok.png')}}" alt="">
                     </a>
                 </div>
@@ -37,7 +37,7 @@
         <div class="row">
             <div class="col-md-6 wow fadeInUp">
                 <div class="card" style="width: 35rem;">
-                    <a href="https://youtu.be/X8L5HzSgMCk" target="_blank">
+                    <a href="https://youtu.be/Vxz3t5fNp7Y" target="_blank">
                         <img class="card-img-top" src="{{ URL::asset('assets/images/videos/bio-geral-ok.png')}}" alt="">
                     </a>
                 </div>
