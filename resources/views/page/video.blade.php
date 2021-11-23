@@ -43,11 +43,11 @@
                 </div>
             </div>
             <div class="col-md-6 wow fadeInUp">
-{{--                <div class="card" style="width: 35rem;">--}}
-{{--                    <a href="https://youtu.be/cMqAOWfsXcA" target="_blank">--}}
-{{--                        <img class="card-img-top" src="{{ URL::asset('assets/images/videos/preenchimento-rugas2.png')}}" alt="">--}}
-{{--                    </a>--}}
-{{--                </div>--}}
+                <div class="card" style="width: 35rem;">
+                    <a href="https://youtu.be/WHYEOQgPJLQ" target="_blank">
+                        <img class="card-img-top" src="{{ URL::asset('assets/images/videos/toxi-botu-rugas.png')}}" alt="">
+                    </a>
+                </div>
             </div>
 
 
