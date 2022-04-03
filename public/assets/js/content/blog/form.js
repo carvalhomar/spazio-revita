@@ -67,7 +67,7 @@ $(function(){
                 data:data,
                 success: function(response){
 
-                    msgAlert= '<div class="alert alert-'+response.status+'" role="alert">';
+                   let msgAlert= '<div class="alert alert-'+response.status+'" role="alert">';
                     msgAlert+= '<button aria-label="Close" class="close" data-dismiss="alert" type="button">';
                     msgAlert+= '<span aria-hidden="true">&times;</span>';
                     msgAlert+= '</button>';
