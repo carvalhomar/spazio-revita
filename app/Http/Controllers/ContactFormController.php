@@ -19,7 +19,7 @@ class ContactFormController extends Controller
     {
         $this->name = $request->name;
         $this->email = $request->email;
-        $this->mesage = $request->mesage;
+        $this->message = $request->message;
         $this->subject = $request->subject;
     }
 
@@ -29,7 +29,7 @@ class ContactFormController extends Controller
             'title'=> 'E-mail enviado pelo site',
             'name' => $this->name,
             'email'=> $this->email,
-            'mesage' => $this->mesage,
+            'message' => $this->mesage,
             'subject' => $this->subject,
         ];
 

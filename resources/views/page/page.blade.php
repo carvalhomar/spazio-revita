@@ -160,7 +160,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="mesage">Mensagem</label>
-                                <textarea class="form-control" name="mesage" id="mesage"></textarea>
+                                <textarea class="form-control" name="message" id="message"></textarea>
                             </div>
                         </div>
                         <br/>

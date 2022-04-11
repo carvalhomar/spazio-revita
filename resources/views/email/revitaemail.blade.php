@@ -11,6 +11,6 @@
     <p><strong>Nome:</strong>{{ $details['name'] }}</p>
     <p><strong>Assunto:</strong>{{ $details['subject'] }}</p>
     <p><strong>E-mail:</strong>{{ $details['email'] }}</p>
-    <p><strong>Mensagem:</strong>{{ $details['mesage'] }}</p>
+    <p><strong>Mensagem:</strong>{{ $details['message'] }}</p>
 </body>
 </html>
