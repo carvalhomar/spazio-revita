@@ -29,7 +29,7 @@ class ContactFormController extends Controller
             'title'=> 'E-mail enviado pelo site',
             'name' => $this->name,
             'email'=> $this->email,
-            'message' => $this->mesage,
+            'message' => $this->message,
             'subject' => $this->subject,
         ];
 

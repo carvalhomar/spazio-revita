@@ -159,7 +159,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <label for="mesage">Mensagem</label>
+                                <label for="message">Mensagem</label>
                                 <textarea class="form-control" name="message" id="message"></textarea>
                             </div>
                         </div>
