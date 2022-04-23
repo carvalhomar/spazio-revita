@@ -31,7 +31,7 @@ Route::get('/health/load', [ContentController::class, 'loadHealth']);
 Route::get('/blog/load', [ContentController::class, 'loadBlog']);
 
 //Send e-mail
-Route::resource('/send-email', MailController::class);
+Route::post('/send-email', [MailController::class, 'store']);
 
 Route::get('/dashboard', function(){
     return view('dashboard.index');

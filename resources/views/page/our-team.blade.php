@@ -28,7 +28,7 @@
 
                         <div class="col-md-6">
 
-                            <img src="{{ URL::asset('assets/images/dra.png') }}" alt="">
+                            <img src="{{ URL::asset('assets/images/dra2.jpg') }}" alt="">
 
                         </div>
 
@@ -36,17 +36,17 @@
 
 {{--                            <div class="title-box">--}}
 
-                                <h4>Dra. Simone Bacchi</h4>
+                                <h4>Dra Silvana Zakka </h4>
 
-                                <p>Fisioterapeuta</p>
+                                <p>Biomédica Esteta</p>
 
 {{--                            </div>--}}
 
                             <div>
 
                                 <p>
-                                    Bacharel em  Fisioterapia- 2º semestre 2008, Universidade de Caxias do Sul – UCS
-                                    Pós-graduação em Fisioterapia Dermato-funcional – PUCRS
+                                Pós-graduada em Estética
+                                CRBM5 6269
                                 </p>
 
                             </div>
