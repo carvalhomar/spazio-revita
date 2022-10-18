@@ -34,6 +34,7 @@
                     <thead>
                     <tr>
                         <th>Título</th>
+                        <th>Visível</th>
                         <th>Ação</th>
                     </tr>
                     </thead>
@@ -41,7 +42,14 @@
                     <?php foreach ($page as $data): ?>
                     <tr>
                         <td>{{ $data->title }}</td>
-                        <td width="10%">
+                        <td width="10%" align="center">
+                            @if ($data->visible === 1)
+                                <i class="fe fe-eye mr-2"></i>
+                            @else
+                                <i class="fe fe-eye-off mr-2"></i>
+                            @endif    
+                        </td>
+                        <td width="10%" align="center">
                             <a data-placement="top" data-toggle="tooltip-primary" title="Alterar" href="/content/health/edit/{{ $data->id }}" alt="Alterar">
                                 <i class="fe fe-edit mr-2"></i>
                             </a>

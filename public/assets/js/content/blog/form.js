@@ -66,17 +66,19 @@ $(function(){
                 url:"/content/blog/store",
                 data:data,
                 success: function(response){
+                    let msgAlert='';
 
-                   let msgAlert= '<div class="alert alert-'+response.status+'" role="alert">';
+                    msgAlert= '<div class="alert alert-'+response.status+'" role="alert">';
                     msgAlert+= '<button aria-label="Close" class="close" data-dismiss="alert" type="button">';
                     msgAlert+= '<span aria-hidden="true">&times;</span>';
                     msgAlert+= '</button>';
-                    msgAlert+= '<strong>Sucesso!</strong>'+response.msg;
+                    msgAlert+= '<strong>Sucesso!</strong> '+response.msg;
                     msgAlert+= '</div>';
 
                     $('.msg').append(msgAlert).fadeIn('slow');
                     setTimeout(function(){
                         $('.msg').fadeOut().remove();
+                        $('.alert').remove();
                         $('#btnsave').prop('disabled', false);
                     }, 2000);
                 }

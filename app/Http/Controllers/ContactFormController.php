@@ -12,7 +12,8 @@ class ContactFormController extends Controller
 
     private $name;
     private $email;
-    private $mesage;
+    private $message;
+    private $phone;
     private $subject;
 
     public function __construct(Request $request)
@@ -20,6 +21,7 @@ class ContactFormController extends Controller
         $this->name = $request->name;
         $this->email = $request->email;
         $this->message = $request->message;
+        $this->phone = $request->fone;
         $this->subject = $request->subject;
     }
 
@@ -29,6 +31,7 @@ class ContactFormController extends Controller
             'title'=> 'E-mail enviado pelo site',
             'name' => $this->name,
             'email'=> $this->email,
+            'fone' => $this->phone,
             'message' => $this->message,
             'subject' => $this->subject,
         ];

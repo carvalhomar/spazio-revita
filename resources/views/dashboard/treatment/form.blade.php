@@ -6,6 +6,7 @@
     <link href="{{ URL::asset('assets/plugins/datatable/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('assets/plugins/datatable/responsivebootstrap4.min.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('assets/plugins/datatable/fileexport/buttons.bootstrap4.min.css') }}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
 @endpush
 
 @section('titlePage', 'Formulário de Tratamento')
@@ -28,11 +29,18 @@
                 @csrf
                 <input type="hidden" name="pageType" id="pageType" value="1">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label class="form-label">Título: <span class="tx-danger">*</span></label>
                             <input type="text" class="form-control state-valid" name="title" id="title" placeholder="Título do tratamente" required>
 
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label">Visibilidade: </label>
+                            <input type="checkbox" data-on="Visível" data-off="Invisível" data-toggle="toggle" id="visibility" data-width="100" data-height="40">&nbsp;
+                            <label for="visibility" class="form-check-label">Ativa a visualização do conteúdo no site</label>
                         </div>
                     </div>
                 </div>
@@ -67,8 +75,9 @@
             filebrowserUploadMethod: 'form'
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
     <script src="http://malsup.github.com/jquery.form.js"></script>
-    <script src="{{ URL::asset('assets/js/content/treatment/form.js?v=12') }}"></script>
+    <script src="{{ URL::asset('assets/js/content/treatment/form.js?v=334') }}"></script>
 
 @endpush

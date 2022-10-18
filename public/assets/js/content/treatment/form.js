@@ -22,21 +22,25 @@ $(function(){
             $(element).removeClass('is-invalid').addClass('is-valid');
         },
         submitHandler:function(form) {
-
+            
             var data = {};
             if($('#pageId').val() != undefined){
                 data = {
                     '_token':$('input[type=hidden][name=_token]').val(),
                     'pageId': $('#pageId').val(),
+                    'url':$('#title').val().toLowerCase().replace(/\s+|[,\/]/g, "-"),
                     'pageType': $('#pageType').val(),
                     'title': $('#title').val(),
+                    'visible': document.getElementById('visibility').checked === true ? 1 : 0,
                     'content': CKEDITOR.instances['content'].getData(),
                 };
             }else{
                 data = {
                     '_token':$('input[type=hidden][name=_token]').val(),
+                    'url':$('#title').val().toLowerCase().replace(/\s+|[,\/]/g, "-"),
                     'title': $('#title').val(),
                     'pageType': $('#pageType').val(),
+                    'visible': document.getElementById('visibility').checked === true ? 1 : 0,
                     'content': CKEDITOR.instances['content'].getData(),
                 };
             }
@@ -48,17 +52,19 @@ $(function(){
                 url:"/content/treatment/store",
                 data:data,
                 success: function(response){
-
+                    let msgAlert = '';
                     msgAlert= '<div class="alert alert-'+response.status+'" role="alert">';
                     msgAlert+= '<button aria-label="Close" class="close" data-dismiss="alert" type="button">';
                     msgAlert+= '<span aria-hidden="true">&times;</span>';
                     msgAlert+= '</button>';
-                    msgAlert+= '<strong>Sucesso!</strong>'+response.msg;
+                    msgAlert+= '<strong>Sucesso!</strong> '+response.msg;
                     msgAlert+= '</div>';
 
                     $('.msg').append(msgAlert).fadeIn('slow');
+                    
                     setTimeout(function(){
                         $('.msg').fadeOut();
+                        $('.alert').remove();
                         $('#btnsave').prop('disabled', false);
                     }, 2000);
                 }
@@ -84,7 +90,9 @@ $(function(){
             success: (response)=>{
                 $('#formTreatment').append('<input type="hidden" id="pageId" name="pageId" value="'+response.id+'">');
                 $('#title').val(response.title);
+                response.visible === 1 ? $('#visibility').bootstrapToggle('on') :  $('#visibility').bootstrapToggle('off');
                 setTimeout(()=>{
+                    
                     CKEDITOR.instances['content'].setData(response.content);
                 },1000);
 

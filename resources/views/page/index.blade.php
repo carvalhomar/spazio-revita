@@ -11,11 +11,11 @@
 
 @section('content')
     {{ view('page.carousel') }}
-    {{ view('page.staff') }}
+    {{ view('page.treatment') }}
     {{ view('page.our-team') }}
     {{ view('page.blog') }}
     {{ view('page.video') }}
-    {{ view('page.laser') }}
+    {{ view('page.health') }}
     {{ view('page.footer') }}
 @endsection
 
@@ -32,5 +32,5 @@
     <script src="{{ URL::asset('assets/js/wow.min.js') }}"></script>
     <script src="{{ URL::asset('assets/js/TweenMax.min.js') }}"></script>
     <script src="{{ URL::asset('assets/js/wavify.js') }}"></script>
-    <script src="{{ URL::asset('assets/js/main.js') }}"></script>
+    <script src="{{ URL::asset('assets/js/main.js?v=1') }}"></script>
 @endpush

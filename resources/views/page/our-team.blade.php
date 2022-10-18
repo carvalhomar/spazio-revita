@@ -20,56 +20,56 @@
 
         <div class="row">
 
-            <div class="col-md-6">
+{{--            <div class="col-md-6">--}}
 
-                <div class="team-box wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+{{--                <div class="team-box wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">--}}
 
-                    <article class="row">
+{{--                    <article class="row">--}}
 
-                        <div class="col-md-6">
+{{--                        <div class="col-md-6">--}}
 
-                            <img src="{{ URL::asset('assets/images/dra2.jpg') }}" alt="">
+{{--                            <img src="{{ URL::asset('assets/images/dra2.jpg') }}" alt="">--}}
 
-                        </div>
+{{--                        </div>--}}
 
-                        <div class="col-md-6">
+{{--                        <div class="col-md-6">--}}
 
 {{--                            <div class="title-box">--}}
 
-                                <h4>Dra Silvana Zakka </h4>
+{{--                                <h4>Dra Silvana Zakka </h4>--}}
 
-                                <p>Biomédica Esteta</p>
+{{--                                <p>Biomédica Esteta</p>--}}
 
 {{--                            </div>--}}
 
-                            <div>
+{{--                            <div>--}}
 
-                                <p>
-                                Pós-graduada em Estética
-                                CRBM5 6269
-                                </p>
+{{--                                <p>--}}
+{{--                                Pós-graduada em Estética--}}
+{{--                                CRBM5 6269--}}
+{{--                                </p>--}}
 
-                            </div>
+{{--                            </div>--}}
 
 {{--                            <div class="m-al-c"><a href="#" class="get-apt"><i class="icofont-rounded-right"></i> Book Appointment </a></div>--}}
 
-                        </div>
+{{--                        </div>--}}
 
-                    </article>
+{{--                    </article>--}}
 
-                </div>
+{{--                </div>--}}
 
-            </div>
+{{--            </div>--}}
 
-            <div class="col-md-6">
+            <div class="col-md-12">
 
                 <div class="team-box wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
 
                     <article class="row">
 
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="max-width: 30%!important;">
 
-                            <img src="{{ URL::asset('assets/images/dr_honorio.jpg') }}" alt="">
+                            <img  src="{{ URL::asset('assets/images/dr_honorio.jpg') }}" alt="">
 
                         </div>
 
@@ -79,7 +79,7 @@
 
                                 <h4>Dr. Honório Sampaio Menezes</h4>
 
-                                <p>Responsável Técnico</p>
+                                <p>Diretor Técnico Médico</p>
 
 {{--                            /</div>--}}
 

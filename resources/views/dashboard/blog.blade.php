@@ -43,7 +43,7 @@
                     <tr>
                         <td>{{ $data->title }}</td>
                         <td>{{ $data->name }}</td>
-                        <td>
+                        <td align="center">
                             <a data-placement="top" data-toggle="tooltip-primary" title="Alterar" href="/content/blog/edit/{{ $data->idblog }}" alt="Alterar">
                                 <i class="fe fe-edit mr-2"></i>
                             </a>

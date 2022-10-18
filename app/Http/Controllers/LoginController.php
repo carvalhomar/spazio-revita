@@ -24,7 +24,7 @@ class LoginController extends Controller
         $pass = $request->post('password');
 
         $hash = (new User())->where('user', $user)->value('password');
-
+        
         if(!$hash || !Hash::check($pass, $hash)){
             return response()->json('error');
         }

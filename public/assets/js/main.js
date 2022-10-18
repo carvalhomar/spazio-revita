@@ -217,22 +217,26 @@ $.ajax({
         var count = 0;
 
         for(var i = 0; response.length > i; i++){
-            if(count == 0){
-                row+='<div class="row">';
-            }
-            row+='<div class="col-md-3">';
-            row+='<div class="ftr-icon-box wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">';
-            row+='<div class="icon"><i class="icofont-stretcher"></i></div>';
-            row+='<h4 class="title">'+response[i].title+'</h4>';
-            row+='<p class="description"><a href="/treatment/article/'+response[i].id+'/'+response[i].title.toLowerCase().replace(/\s+|[,\/]/g, "-")+'" target="_self">Clique aqui para saber</a></p>';
-            row+='</div>';
-            row+='</div>';
-
-            count+=1;
-
-            if(count == 4){
+            if( response[i].visible === 1){
+                
+                if(count == 0){
+                    row+='<div class="row">';
+                }
+                
+                row+='<div class="col-md-3">';
+                row+='<div class="ftr-icon-box wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">';
+                row+='<div class="icon"><i class="icofont-stretcher"></i></div>';
+                row+='<h4 class="title">'+response[i].title+ response[i].visible+'</h4>';
+                row+='<p class="description"><a href="/treatment/article/'+response[i].id+'/'+response[i].title.toLowerCase().replace(/\s+|[,\/]/g, "-")+'" target="_self">Clique aqui para saber</a></p>';
                 row+='</div>';
-                count = 0;
+                row+='</div>';
+    
+                count+=1;
+    
+                if(count == 4){
+                    row+='</div>';
+                    count = 0;
+                }
             }
         }
         $('.features .container').append(row);

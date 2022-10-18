@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\ContactFormController;
+use Exception;
 use Illuminate\Http\Request;
 use Mail;
 
@@ -25,14 +26,8 @@ class MailController extends Controller
             $contact->sendEmail();
             return back()
                 ->with('success','Obrigado por nos contactar');
-
-        }catch (Exceptions $error){
-
+        }catch (Exception $error){
             return back()->with("error", "Ocorreu um erro inesperado: {$error->getMessage()}");
-
         }
-
-
-
     }
 }

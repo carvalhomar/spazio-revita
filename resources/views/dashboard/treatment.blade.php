@@ -34,14 +34,25 @@
                     <thead>
                     <tr>
                         <th>Título</th>
+                        <th>Link</th>
+                        <th>Visível</th>
                         <th>Ação</th>
                     </tr>
                     </thead>
                     <tbody>
                     <?php foreach ($page as $data): ?>
+                   
                     <tr>
                         <td>{{ $data->title }}</td>
-                        <td width="10%">
+                        <td><a href="{{ URL::to('') }}/treatment/article/{{ $data->id }}/{{ $data->url }}">{{ URL::to('') }}/treatment/article/{{ $data->id }}/{{ $data->url }}</a></td>
+                        <td width="10%" align="center">
+                            @if ($data->visible === 1)
+                                <i class="fe fe-eye mr-2"></i>
+                            @else
+                                <i class="fe fe-eye-off mr-2"></i>
+                            @endif    
+                        </td>
+                        <td width="10%" align="center">
                             <a data-placement="top" data-toggle="tooltip-primary" title="Alterar" href="/content/treatment/edit/{{ $data->id }}" alt="Alterar">
                                 <i class="fe fe-edit mr-2"></i>
                             </a>

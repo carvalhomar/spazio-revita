@@ -117,13 +117,14 @@ class ContentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function storeTreatment(Request $request)
-    {
-        //create or update new data on Pages table
+    {     //create or update new data on Pages table
         Pages::updateOrCreate(
             ['id' => $request->post('pageId')],
             [
                 'title' => $request->post('title'),
+                'url' => $request->post('url'),
                 'content' => $request->post('content'),
+                'visible' => $request->post('visible'),
                 'pt_id' => $request->post('pageType')
             ]
         );

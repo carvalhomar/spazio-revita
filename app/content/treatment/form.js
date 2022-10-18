@@ -47,13 +47,12 @@ $(function(){
                 method:"POST",
                 url:"/content/treatment/store",
                 data:data,
-                success: function(response){
-
+                success: function(response){     
                     msgAlert= '<div class="alert alert-'+response.status+'" role="alert">';
                     msgAlert+= '<button aria-label="Close" class="close" data-dismiss="alert" type="button">';
                     msgAlert+= '<span aria-hidden="true">&times;</span>';
                     msgAlert+= '</button>';
-                    msgAlert+= '<strong>Sucesso!</strong>'+response.msg;
+                    msgAlert+= '<strong>Sucesso!</strong> '+response.msg;
                     msgAlert+= '</div>';
 
                     $('.msg').append(msgAlert).fadeIn('slow');

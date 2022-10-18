@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
+use Illuminate\Support\Facades\DB;
 class Page extends Migration
 {
     /**
@@ -17,7 +17,9 @@ class Page extends Migration
             $table->id('id');
             $table->string('title', 255);
             $table->text('content');
+            $table->string('url');
             $table->integer('pt_id');
+            $table->boolean('visible');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
             $table->softDeletes();

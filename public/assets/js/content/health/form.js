@@ -27,14 +27,18 @@ $(function(){
                     '_token':$('input[type=hidden][name=_token]').val(),
                     'pageId': $('#pageId').val(),
                     'pageType': $('#pageType').val(),
+                    'visible': document.getElementById('visibility').checked === true ? 1 : 0,
                     'title': $('#title').val(),
+                    'url':$('#title').val().toLowerCase().replace(/\s+|[,\/]/g, "-"),
                     'content': CKEDITOR.instances['content'].getData(),
                 };
             }else{
                 data = {
                     '_token':$('input[type=hidden][name=_token]').val(),
                     'title': $('#title').val(),
+                    'url':$('#title').val().toLowerCase().replace(/\s+|[,\/]/g, "-"),
                     'pageType': $('#pageType').val(),
+                    'visible': document.getElementById('visibility').checked === true ? 1 : 0,
                     'content': CKEDITOR.instances['content'].getData(),
                 };
             }
@@ -77,6 +81,7 @@ $(function(){
 
                 $('#formHealth').append('<input type="hidden" id="pageId" name="pageId" value="'+response.id+'">');
                 $('#title').val(response.title);
+                response.visible === 1 ? $('#visibility').bootstrapToggle('on') :  $('#visibility').bootstrapToggle('off');
                 setTimeout(()=>{
                     CKEDITOR.instances['content'].setData(response.content);
                 },1000);

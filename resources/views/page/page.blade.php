@@ -144,15 +144,19 @@
                         @endif
 
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <label for="name">Nome</label>
                                 <input type="text" name="name" id="name" class="form-control"/>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <label for="email">e-mail</label>
                                 <input type="e-mail" name="email" id="email" class="form-control"/>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
+                                <label for="fone">Fone/Whatsapp</label>
+                                <input type="text" name="fone" id="fone" class="form-control"/>
+                            </div>
+                            <div class="col-md-3">
                                 <label for="email">Assunto</label>
                                 <input type="text" name="subject" id="subject" value="{{ $data->title }}" class="form-control"/>
                             </div>

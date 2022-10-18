@@ -21,7 +21,7 @@ $(function(){
         },
         submitHandler:function(form) {
             $('#btnsave').prop('disabled', true);
-
+                
             $.ajax({
                 method:"POST",
                 url:"/content/treatment/store",
