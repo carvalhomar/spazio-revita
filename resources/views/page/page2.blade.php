@@ -102,59 +102,38 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <form class="form-control" action="{{ url('/send-email')}}" method="post">
+                    <form class="form-control" method="post">
                         {{ csrf_field() }}
 
-                        @if(count($errors) > 0)
-                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                <strong>Preencha os dados corretamente!</strong>
-                                <ul>
-                                    @foreach($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                        @endif
-
-                        @if($message = Session::get('success'))
-                            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                <strong>Obrigado!</strong> {{ $message }}
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                        @endif
-
-                        @if($message = Session::get('error'))
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                <strong>Opsssss!</strong> {{ $message }}
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                        @endif
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>Obrigado!</strong> Por nos contactar.
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
 
                         <div class="row">
-                            <div class="col-md-4">
-                                <label for="name">Nome</label>
-                                <input type="text" name="name" id="name" class="form-control"/>
+                            <div class="col-md-3">
+                                <label for="name">Nome <span style="color: red">*</span></label>
+                                <input type="text" name="name" id="name" class="form-control" required/>
                             </div>
-                            <div class="col-md-4">
-                                <label for="email">e-mail</label>
-                                <input type="e-mail" name="email" id="email" class="form-control"/>
+                            <div class="col-md-3">
+                                <label for="email">E-mail <span style="color: red">*</span></label>
+                                <input type="e-mail" name="email" id="email" class="form-control" required/>
                             </div>
-                            <div class="col-md-4">
-                                <label for="email">Assunto</label>
-                                <input type="text" name="subject" id="subject" value="{{ $data->title }}" class="form-control"/>
+                            <div class="col-md-3">
+                                <label for="fone">Fone/Whatsapp <span style="color: red">*</span></label>
+                                <input type="text" name="fone" id="fone" class="form-control" required/>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="email">Assunto <span style="color: red">*</span></label>
+                                <input type="text" name="subject" id="subject" value="{{ $data->title }}" class="form-control" required/>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <label for="message">Mensagem</label>
-                                <textarea class="form-control" name="message" id="message"></textarea>
+                                <label for="message">Mensagem <span style="color: red">*</span></label>
+                                <textarea class="form-control" name="message" id="message" required></textarea>
                             </div>
                         </div>
                         <br/>
@@ -185,6 +164,8 @@
     gtag('config', 'G-TDBRVKY41Z');
     </script>
     <script src="{{ URL::asset('assets/js/jquery.min.js') }}"></script>
+    <script src="http://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
+    <script src="{{ URL::asset('assets/js/page/custom.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="{{ URL::asset('assets/js/jquery.easing.min.js') }}"></script>
