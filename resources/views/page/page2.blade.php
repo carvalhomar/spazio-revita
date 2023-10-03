@@ -102,7 +102,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <form class="form-control" method="post">
+                    <form class="form-control" method="post" id="formContact">
                         {{ csrf_field() }}
 
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -123,7 +123,7 @@
                             </div>
                             <div class="col-md-3">
                                 <label for="fone">Fone/Whatsapp <span style="color: red">*</span></label>
-                                <input type="text" name="fone" id="fone" class="form-control" required/>
+                                <input type="text" name="fone" id="fone" class="form-control" maxlength="10" minlength="9" required/>
                             </div>
                             <div class="col-md-3">
                                 <label for="email">Assunto <span style="color: red">*</span></label>
@@ -150,22 +150,24 @@
         </div>
     </section>
     <a href="#" class="back_top" style="display: inline;"> <i class="icofont-rounded-up"></i></a>
-
-
     <script type="text/javascript" async="" src="http://www.googleadservices.com/pagead/conversion_async.js"></script>
     <script type="text/javascript" async="" src="http://www.googletagmanager.com/gtag/js?id=AW-981358199&amp;l=dataLayer&amp;cx=c"></script>
-
+    <script src="hhttps://cdnjs.com/libraries/jquery.mask"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-TDBRVKY41Z"></script>
     <script>
+        $(document).ready(function(){
+            $('#fone').mask('(00)00000-0000')
+        });
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
     gtag('config', 'G-TDBRVKY41Z');
     </script>
+
     <script src="{{ URL::asset('assets/js/jquery.min.js') }}"></script>
     <script src="http://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
-    <script src="{{ URL::asset('assets/js/page/custom.js') }}"></script>
+    <script src="{{ URL::asset('assets/js/page/custom.js?v=432101') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="{{ URL::asset('assets/js/jquery.easing.min.js') }}"></script>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" host="154.56.48.158" id="e0bacf0c-ab7c-4f8c-b289-77b05281cac9" port="65002" customName="Spazio Revita - PROD" nameFormat="CUSTOM" username="u984372186" useOpenSSHConfig="true">
+        <option name="customName" value="Spazio Revita - PROD" />
+      </sshConfig>
+    </configs>
+  </component>
+</project>
