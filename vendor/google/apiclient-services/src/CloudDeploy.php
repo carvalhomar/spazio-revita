@@ -42,6 +42,7 @@ class CloudDeploy extends \Google\Service
   public $projects_locations_deliveryPipelines;
   public $projects_locations_deliveryPipelines_releases;
   public $projects_locations_deliveryPipelines_releases_rollouts;
+  public $projects_locations_deliveryPipelines_releases_rollouts_jobRuns;
   public $projects_locations_operations;
   public $projects_locations_targets;
 
@@ -247,6 +248,16 @@ class CloudDeploy extends \Google\Service
                   'type' => 'boolean',
                 ],
               ],
+            ],'rollbackTarget' => [
+              'path' => 'v1/{+name}:rollbackTarget',
+              'httpMethod' => 'POST',
+              'parameters' => [
+                'name' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
             ],'setIamPolicy' => [
               'path' => 'v1/{+resource}:setIamPolicy',
               'httpMethod' => 'POST',
@@ -355,8 +366,28 @@ class CloudDeploy extends \Google\Service
         'rollouts',
         [
           'methods' => [
-            'approve' => [
+            'advance' => [
+              'path' => 'v1/{+name}:advance',
+              'httpMethod' => 'POST',
+              'parameters' => [
+                'name' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],'approve' => [
               'path' => 'v1/{+name}:approve',
+              'httpMethod' => 'POST',
+              'parameters' => [
+                'name' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],'cancel' => [
+              'path' => 'v1/{+name}:cancel',
               'httpMethod' => 'POST',
               'parameters' => [
                 'name' => [
@@ -382,6 +413,10 @@ class CloudDeploy extends \Google\Service
                   'location' => 'query',
                   'type' => 'string',
                 ],
+                'startingPhaseId' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
                 'validateOnly' => [
                   'location' => 'query',
                   'type' => 'boolean',
@@ -392,6 +427,16 @@ class CloudDeploy extends \Google\Service
               'httpMethod' => 'GET',
               'parameters' => [
                 'name' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],'ignoreJob' => [
+              'path' => 'v1/{+rollout}:ignoreJob',
+              'httpMethod' => 'POST',
+              'parameters' => [
+                'rollout' => [
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
@@ -421,6 +466,72 @@ class CloudDeploy extends \Google\Service
                 'pageToken' => [
                   'location' => 'query',
                   'type' => 'string',
+                ],
+              ],
+            ],'retryJob' => [
+              'path' => 'v1/{+rollout}:retryJob',
+              'httpMethod' => 'POST',
+              'parameters' => [
+                'rollout' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],
+          ]
+        ]
+    );
+    $this->projects_locations_deliveryPipelines_releases_rollouts_jobRuns = new CloudDeploy\Resource\ProjectsLocationsDeliveryPipelinesReleasesRolloutsJobRuns(
+        $this,
+        $this->serviceName,
+        'jobRuns',
+        [
+          'methods' => [
+            'get' => [
+              'path' => 'v1/{+name}',
+              'httpMethod' => 'GET',
+              'parameters' => [
+                'name' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],'list' => [
+              'path' => 'v1/{+parent}/jobRuns',
+              'httpMethod' => 'GET',
+              'parameters' => [
+                'parent' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'filter' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'orderBy' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'pageSize' => [
+                  'location' => 'query',
+                  'type' => 'integer',
+                ],
+                'pageToken' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+              ],
+            ],'terminate' => [
+              'path' => 'v1/{+name}:terminate',
+              'httpMethod' => 'POST',
+              'parameters' => [
+                'name' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
                 ],
               ],
             ],

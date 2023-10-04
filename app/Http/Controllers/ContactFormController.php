@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
-use Mail;
+use Illuminate\Support\Facades\Mail;
 use App\Mail\RevitaMail;
 
 class ContactFormController extends Controller
@@ -36,7 +36,6 @@ class ContactFormController extends Controller
             'subject' => $this->subject,
         ];
 
-        Mail::to( config('mail.from.address'))
-            ->send( new RevitaMail($details));
+        Mail::to( config('mail.from.address'))->send( new RevitaMail($details));
     }
 }

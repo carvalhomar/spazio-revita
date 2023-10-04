@@ -32,7 +32,7 @@ use Google\Service\Pubsub\UpdateSnapshotRequest;
  * Typical usage is:
  *  <code>
  *   $pubsubService = new Google\Service\Pubsub(...);
- *   $snapshots = $pubsubService->snapshots;
+ *   $snapshots = $pubsubService->projects_snapshots;
  *  </code>
  */
 class ProjectsSnapshots extends \Google\Service\Resource
@@ -57,7 +57,8 @@ class ProjectsSnapshots extends \Google\Service\Resource
    * @param string $name Required. User-provided name for this snapshot. If the
    * name is not provided in the request, the server will assign a random name for
    * this snapshot on the same project as the subscription. Note that for REST API
-   * requests, you must specify a name. See the resource name rules. Format is
+   * requests, you must specify a name. See the [resource name
+   * rules](https://cloud.google.com/pubsub/docs/admin#resource_names). Format is
    * `projects/{project}/snapshots/{snap}`.
    * @param CreateSnapshotRequest $postBody
    * @param array $optParams Optional parameters.
@@ -150,8 +151,8 @@ class ProjectsSnapshots extends \Google\Service\Resource
    * snapshots. Format is `projects/{project-id}`.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int pageSize Maximum number of snapshots to return.
-   * @opt_param string pageToken The value returned by the last
+   * @opt_param int pageSize Optional. Maximum number of snapshots to return.
+   * @opt_param string pageToken Optional. The value returned by the last
    * `ListSnapshotsResponse`; indicates that this is a continuation of a prior
    * `ListSnapshots` call, and that the system should return the next page of
    * data.
@@ -170,7 +171,7 @@ class ProjectsSnapshots extends \Google\Service\Resource
    * set the acknowledgment state of messages in an existing subscription to the
    * state captured by a snapshot. (snapshots.patch)
    *
-   * @param string $name The name of the snapshot.
+   * @param string $name Optional. The name of the snapshot.
    * @param UpdateSnapshotRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Snapshot

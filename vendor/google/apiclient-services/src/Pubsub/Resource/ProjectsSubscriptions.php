@@ -39,7 +39,7 @@ use Google\Service\Pubsub\UpdateSubscriptionRequest;
  * Typical usage is:
  *  <code>
  *   $pubsubService = new Google\Service\Pubsub(...);
- *   $subscriptions = $pubsubService->subscriptions;
+ *   $subscriptions = $pubsubService->projects_subscriptions;
  *  </code>
  */
 class ProjectsSubscriptions extends \Google\Service\Resource
@@ -177,8 +177,8 @@ class ProjectsSubscriptions extends \Google\Service\Resource
    * subscriptions. Format is `projects/{project-id}`.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int pageSize Maximum number of subscriptions to return.
-   * @opt_param string pageToken The value returned by the last
+   * @opt_param int pageSize Optional. Maximum number of subscriptions to return.
+   * @opt_param string pageToken Optional. The value returned by the last
    * `ListSubscriptionsResponse`; indicates that this is a continuation of a prior
    * `ListSubscriptions` call, and that the system should return the next page of
    * data.
@@ -251,9 +251,7 @@ class ProjectsSubscriptions extends \Google\Service\Resource
     return $this->call('patch', [$params], Subscription::class);
   }
   /**
-   * Pulls messages from the server. The server may return `UNAVAILABLE` if there
-   * are too many concurrent pull requests pending for the given subscription.
-   * (subscriptions.pull)
+   * Pulls messages from the server. (subscriptions.pull)
    *
    * @param string $subscription Required. The subscription from which messages
    * should be pulled. Format is `projects/{project}/subscriptions/{sub}`.

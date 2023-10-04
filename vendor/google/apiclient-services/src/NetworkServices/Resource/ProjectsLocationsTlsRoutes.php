@@ -26,7 +26,7 @@ use Google\Service\NetworkServices\TlsRoute;
  * Typical usage is:
  *  <code>
  *   $networkservicesService = new Google\Service\NetworkServices(...);
- *   $tlsRoutes = $networkservicesService->tlsRoutes;
+ *   $tlsRoutes = $networkservicesService->projects_locations_tlsRoutes;
  *  </code>
  */
 class ProjectsLocationsTlsRoutes extends \Google\Service\Resource
@@ -40,7 +40,7 @@ class ProjectsLocationsTlsRoutes extends \Google\Service\Resource
    * @param array $optParams Optional parameters.
    *
    * @opt_param string tlsRouteId Required. Short name of the TlsRoute resource to
-   * be created. E.g. TODO(Add an example).
+   * be created.
    * @return Operation
    */
   public function create($parent, TlsRoute $postBody, $optParams = [])
@@ -89,7 +89,8 @@ class ProjectsLocationsTlsRoutes extends \Google\Service\Resource
    * @opt_param int pageSize Maximum number of TlsRoutes to return per call.
    * @opt_param string pageToken The value returned by the last
    * `ListTlsRoutesResponse` Indicates that this is a continuation of a prior
-   * `ListRouters` call, and that the system should return the next page of data.
+   * `ListTlsRoutes` call, and that the system should return the next page of
+   * data.
    * @return ListTlsRoutesResponse
    */
   public function listProjectsLocationsTlsRoutes($parent, $optParams = [])

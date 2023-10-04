@@ -44,15 +44,13 @@ $(document).ready(function() {
         },
         submitHandler: function (form) {
             // $("#emailForm").preventDefault();
-            // console.log(form);
-            $('button[type=submit]').disable();
+            $('button[type=submit]').prop('disabled', true);
 
             $.ajax({
                 type: 'POST',
                 url: '/send-email',
                 data: $(form).serialize(),
                 success: function(response) {
-                    console.log('respondeu...');
                     $('.alert-success').show('slow');
                     // Faça qualquer outra ação desejada após o envio bem-sucedido
                     $('#name').val('');
@@ -61,7 +59,7 @@ $(document).ready(function() {
                     $('#message').val('');
 
                     setTimeout(()=>{
-                        $('button[type=submit]').enable();
+                        $('button[type=submit]').prop('disabled', false);
                         $('.alert-success').hide();
                     },3000);
                 },

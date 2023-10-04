@@ -29,6 +29,10 @@ class Routine extends \Google\Collection
   /**
    * @var string
    */
+  public $dataGovernanceType;
+  /**
+   * @var string
+   */
   public $definitionBody;
   /**
    * @var string
@@ -66,6 +70,8 @@ class Routine extends \Google\Collection
    * @var string
    */
   public $routineType;
+  protected $sparkOptionsType = SparkOptions::class;
+  protected $sparkOptionsDataType = '';
   /**
    * @var bool
    */
@@ -98,6 +104,20 @@ class Routine extends \Google\Collection
   public function getCreationTime()
   {
     return $this->creationTime;
+  }
+  /**
+   * @param string
+   */
+  public function setDataGovernanceType($dataGovernanceType)
+  {
+    $this->dataGovernanceType = $dataGovernanceType;
+  }
+  /**
+   * @return string
+   */
+  public function getDataGovernanceType()
+  {
+    return $this->dataGovernanceType;
   }
   /**
    * @param string
@@ -266,6 +286,20 @@ class Routine extends \Google\Collection
   public function getRoutineType()
   {
     return $this->routineType;
+  }
+  /**
+   * @param SparkOptions
+   */
+  public function setSparkOptions(SparkOptions $sparkOptions)
+  {
+    $this->sparkOptions = $sparkOptions;
+  }
+  /**
+   * @return SparkOptions
+   */
+  public function getSparkOptions()
+  {
+    return $this->sparkOptions;
   }
   /**
    * @param bool

@@ -19,16 +19,8 @@ namespace Google\Service\Bigquery;
 
 class Table extends \Google\Model
 {
-  protected $internal_gapi_mappings = [
-        "numActiveLogicalBytes" => "num_active_logical_bytes",
-        "numActivePhysicalBytes" => "num_active_physical_bytes",
-        "numLongTermLogicalBytes" => "num_long_term_logical_bytes",
-        "numLongTermPhysicalBytes" => "num_long_term_physical_bytes",
-        "numPartitions" => "num_partitions",
-        "numTimeTravelPhysicalBytes" => "num_time_travel_physical_bytes",
-        "numTotalLogicalBytes" => "num_total_logical_bytes",
-        "numTotalPhysicalBytes" => "num_total_physical_bytes",
-  ];
+  protected $biglakeConfigurationType = BigLakeConfiguration::class;
+  protected $biglakeConfigurationDataType = '';
   protected $cloneDefinitionType = CloneDefinition::class;
   protected $cloneDefinitionDataType = '';
   protected $clusteringType = Clustering::class;
@@ -41,6 +33,10 @@ class Table extends \Google\Model
    * @var string
    */
   public $defaultCollation;
+  /**
+   * @var string
+   */
+  public $defaultRoundingMode;
   /**
    * @var string
    */
@@ -83,24 +79,12 @@ class Table extends \Google\Model
   public $location;
   protected $materializedViewType = MaterializedViewDefinition::class;
   protected $materializedViewDataType = '';
+  /**
+   * @var string
+   */
+  public $maxStaleness;
   protected $modelType = ModelDefinition::class;
   protected $modelDataType = '';
-  /**
-   * @var string
-   */
-  public $numBytes;
-  /**
-   * @var string
-   */
-  public $numLongTermBytes;
-  /**
-   * @var string
-   */
-  public $numPhysicalBytes;
-  /**
-   * @var string
-   */
-  public $numRows;
   /**
    * @var string
    */
@@ -109,6 +93,14 @@ class Table extends \Google\Model
    * @var string
    */
   public $numActivePhysicalBytes;
+  /**
+   * @var string
+   */
+  public $numBytes;
+  /**
+   * @var string
+   */
+  public $numLongTermBytes;
   /**
    * @var string
    */
@@ -121,6 +113,14 @@ class Table extends \Google\Model
    * @var string
    */
   public $numPartitions;
+  /**
+   * @var string
+   */
+  public $numPhysicalBytes;
+  /**
+   * @var string
+   */
+  public $numRows;
   /**
    * @var string
    */
@@ -149,6 +149,8 @@ class Table extends \Google\Model
   protected $snapshotDefinitionDataType = '';
   protected $streamingBufferType = Streamingbuffer::class;
   protected $streamingBufferDataType = '';
+  protected $tableConstraintsType = TableConstraints::class;
+  protected $tableConstraintsDataType = '';
   protected $tableReferenceType = TableReference::class;
   protected $tableReferenceDataType = '';
   protected $timePartitioningType = TimePartitioning::class;
@@ -160,6 +162,20 @@ class Table extends \Google\Model
   protected $viewType = ViewDefinition::class;
   protected $viewDataType = '';
 
+  /**
+   * @param BigLakeConfiguration
+   */
+  public function setBiglakeConfiguration(BigLakeConfiguration $biglakeConfiguration)
+  {
+    $this->biglakeConfiguration = $biglakeConfiguration;
+  }
+  /**
+   * @return BigLakeConfiguration
+   */
+  public function getBiglakeConfiguration()
+  {
+    return $this->biglakeConfiguration;
+  }
   /**
    * @param CloneDefinition
    */
@@ -215,6 +231,20 @@ class Table extends \Google\Model
   public function getDefaultCollation()
   {
     return $this->defaultCollation;
+  }
+  /**
+   * @param string
+   */
+  public function setDefaultRoundingMode($defaultRoundingMode)
+  {
+    $this->defaultRoundingMode = $defaultRoundingMode;
+  }
+  /**
+   * @return string
+   */
+  public function getDefaultRoundingMode()
+  {
+    return $this->defaultRoundingMode;
   }
   /**
    * @param string
@@ -385,6 +415,20 @@ class Table extends \Google\Model
     return $this->materializedView;
   }
   /**
+   * @param string
+   */
+  public function setMaxStaleness($maxStaleness)
+  {
+    $this->maxStaleness = $maxStaleness;
+  }
+  /**
+   * @return string
+   */
+  public function getMaxStaleness()
+  {
+    return $this->maxStaleness;
+  }
+  /**
    * @param ModelDefinition
    */
   public function setModel(ModelDefinition $model)
@@ -397,62 +441,6 @@ class Table extends \Google\Model
   public function getModel()
   {
     return $this->model;
-  }
-  /**
-   * @param string
-   */
-  public function setNumBytes($numBytes)
-  {
-    $this->numBytes = $numBytes;
-  }
-  /**
-   * @return string
-   */
-  public function getNumBytes()
-  {
-    return $this->numBytes;
-  }
-  /**
-   * @param string
-   */
-  public function setNumLongTermBytes($numLongTermBytes)
-  {
-    $this->numLongTermBytes = $numLongTermBytes;
-  }
-  /**
-   * @return string
-   */
-  public function getNumLongTermBytes()
-  {
-    return $this->numLongTermBytes;
-  }
-  /**
-   * @param string
-   */
-  public function setNumPhysicalBytes($numPhysicalBytes)
-  {
-    $this->numPhysicalBytes = $numPhysicalBytes;
-  }
-  /**
-   * @return string
-   */
-  public function getNumPhysicalBytes()
-  {
-    return $this->numPhysicalBytes;
-  }
-  /**
-   * @param string
-   */
-  public function setNumRows($numRows)
-  {
-    $this->numRows = $numRows;
-  }
-  /**
-   * @return string
-   */
-  public function getNumRows()
-  {
-    return $this->numRows;
   }
   /**
    * @param string
@@ -481,6 +469,34 @@ class Table extends \Google\Model
   public function getNumActivePhysicalBytes()
   {
     return $this->numActivePhysicalBytes;
+  }
+  /**
+   * @param string
+   */
+  public function setNumBytes($numBytes)
+  {
+    $this->numBytes = $numBytes;
+  }
+  /**
+   * @return string
+   */
+  public function getNumBytes()
+  {
+    return $this->numBytes;
+  }
+  /**
+   * @param string
+   */
+  public function setNumLongTermBytes($numLongTermBytes)
+  {
+    $this->numLongTermBytes = $numLongTermBytes;
+  }
+  /**
+   * @return string
+   */
+  public function getNumLongTermBytes()
+  {
+    return $this->numLongTermBytes;
   }
   /**
    * @param string
@@ -523,6 +539,34 @@ class Table extends \Google\Model
   public function getNumPartitions()
   {
     return $this->numPartitions;
+  }
+  /**
+   * @param string
+   */
+  public function setNumPhysicalBytes($numPhysicalBytes)
+  {
+    $this->numPhysicalBytes = $numPhysicalBytes;
+  }
+  /**
+   * @return string
+   */
+  public function getNumPhysicalBytes()
+  {
+    return $this->numPhysicalBytes;
+  }
+  /**
+   * @param string
+   */
+  public function setNumRows($numRows)
+  {
+    $this->numRows = $numRows;
+  }
+  /**
+   * @return string
+   */
+  public function getNumRows()
+  {
+    return $this->numRows;
   }
   /**
    * @param string
@@ -649,6 +693,20 @@ class Table extends \Google\Model
   public function getStreamingBuffer()
   {
     return $this->streamingBuffer;
+  }
+  /**
+   * @param TableConstraints
+   */
+  public function setTableConstraints(TableConstraints $tableConstraints)
+  {
+    $this->tableConstraints = $tableConstraints;
+  }
+  /**
+   * @return TableConstraints
+   */
+  public function getTableConstraints()
+  {
+    return $this->tableConstraints;
   }
   /**
    * @param TableReference

@@ -111,11 +111,10 @@
                     <form
                         id="emailForm"
                         class="form-control" 
-{{--                         action="{{ url('/send-email')}}"--}}
-{{--                        method="post"--}}
+{{--                        action="{{ url('/send-email')}}"--}}
+                        method="post"
                         >
-                        {{ csrf_field() }}
-
+                        @csrf
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                             <strong>Obrigado!</strong> Por nos contactar.
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -176,7 +175,10 @@
     </script>
     <script src="{{ URL::asset('assets/js/jquery.min.js') }}"></script>
     <script src="http://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
-    <script src="{{ URL::asset('assets/js/page/custom.js?v=-123') }}"></script>
+    @php
+        $version = date('YmdHis');
+    @endphp
+    <script src="{{ URL::asset('assets/js/page/custom.js?v='.$version) }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="{{ URL::asset('assets/js/jquery.easing.min.js') }}"></script>

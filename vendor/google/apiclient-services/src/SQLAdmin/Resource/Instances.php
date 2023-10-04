@@ -25,6 +25,7 @@ use Google\Service\SQLAdmin\InstancesFailoverRequest;
 use Google\Service\SQLAdmin\InstancesImportRequest;
 use Google\Service\SQLAdmin\InstancesListResponse;
 use Google\Service\SQLAdmin\InstancesListServerCasResponse;
+use Google\Service\SQLAdmin\InstancesReencryptRequest;
 use Google\Service\SQLAdmin\InstancesRestoreBackupRequest;
 use Google\Service\SQLAdmin\InstancesRotateServerCaRequest;
 use Google\Service\SQLAdmin\InstancesTruncateLogRequest;
@@ -212,8 +213,9 @@ class Instances extends \Google\Service\Resource
    * instanceType:CLOUD_SQL_INSTANCE'. By default, each expression is an AND
    * expression. However, you can include AND and OR expressions explicitly.
    * @opt_param string maxResults The maximum number of instances to return. The
-   * service may return fewer than this value. The maximum value is 1000; values
-   * above 1000 are coerced to 1000.
+   * service may return fewer than this value. If unspecified, at most 500
+   * instances are returned. The maximum value is 1000; values above 1000 are
+   * coerced to 1000.
    * @opt_param string pageToken A previously-returned page token representing
    * part of the larger set of results to view.
    * @return InstancesListResponse
@@ -244,8 +246,9 @@ class Instances extends \Google\Service\Resource
     return $this->call('listServerCas', [$params], InstancesListServerCasResponse::class);
   }
   /**
-   * Updates settings of a Cloud SQL instance. This method supports patch
-   * semantics. (instances.patch)
+   * Partially updates settings of a Cloud SQL instance by merging the request
+   * with the current configuration. This method supports patch semantics.
+   * (instances.patch)
    *
    * @param string $project Project ID of the project that contains the instance.
    * @param string $instance Cloud SQL instance ID. This does not include the
@@ -275,6 +278,22 @@ class Instances extends \Google\Service\Resource
     $params = ['project' => $project, 'instance' => $instance];
     $params = array_merge($params, $optParams);
     return $this->call('promoteReplica', [$params], Operation::class);
+  }
+  /**
+   * Reencrypt CMEK instance with latest key version. (instances.reencrypt)
+   *
+   * @param string $project ID of the project that contains the instance.
+   * @param string $instance Cloud SQL instance ID. This does not include the
+   * project ID.
+   * @param InstancesReencryptRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Operation
+   */
+  public function reencrypt($project, $instance, InstancesReencryptRequest $postBody, $optParams = [])
+  {
+    $params = ['project' => $project, 'instance' => $instance, 'postBody' => $postBody];
+    $params = array_merge($params, $optParams);
+    return $this->call('reencrypt', [$params], Operation::class);
   }
   /**
    * Deletes all client certificates and generates a new server SSL certificate

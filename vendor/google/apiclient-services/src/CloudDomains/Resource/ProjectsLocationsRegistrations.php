@@ -22,12 +22,14 @@ use Google\Service\CloudDomains\ConfigureContactSettingsRequest;
 use Google\Service\CloudDomains\ConfigureDnsSettingsRequest;
 use Google\Service\CloudDomains\ConfigureManagementSettingsRequest;
 use Google\Service\CloudDomains\ExportRegistrationRequest;
+use Google\Service\CloudDomains\ImportDomainRequest;
 use Google\Service\CloudDomains\ListRegistrationsResponse;
 use Google\Service\CloudDomains\Operation;
 use Google\Service\CloudDomains\Policy;
 use Google\Service\CloudDomains\RegisterDomainRequest;
 use Google\Service\CloudDomains\Registration;
 use Google\Service\CloudDomains\ResetAuthorizationCodeRequest;
+use Google\Service\CloudDomains\RetrieveImportableDomainsResponse;
 use Google\Service\CloudDomains\RetrieveRegisterParametersResponse;
 use Google\Service\CloudDomains\RetrieveTransferParametersResponse;
 use Google\Service\CloudDomains\SearchDomainsResponse;
@@ -41,7 +43,7 @@ use Google\Service\CloudDomains\TransferDomainRequest;
  * Typical usage is:
  *  <code>
  *   $domainsService = new Google\Service\CloudDomains(...);
- *   $registrations = $domainsService->registrations;
+ *   $registrations = $domainsService->projects_locations_registrations;
  *  </code>
  */
 class ProjectsLocationsRegistrations extends \Google\Service\Resource
@@ -101,15 +103,15 @@ class ProjectsLocationsRegistrations extends \Google\Service\Resource
    * Deletes a `Registration` resource. This method works on any `Registration`
    * resource using [Subscription or Commitment billing](/domains/pricing#billing-
    * models), provided that the resource was created at least 1 day in the past.
-   * For `Registration` resources using [Monthly billing](/domains/pricing
-   * #billing-models), this method works if: * `state` is `EXPORTED` with
-   * `expire_time` in the past * `state` is `REGISTRATION_FAILED` * `state` is
-   * `TRANSFER_FAILED` When an active registration is successfully deleted, you
-   * can continue to use the domain in [Google Domains](https://domains.google/)
-   * until it expires. The calling user becomes the domain's sole owner in Google
-   * Domains, and permissions for the domain are subsequently managed there. The
-   * domain does not renew automatically unless the new owner sets up billing in
-   * Google Domains. (registrations.delete)
+   * For `Registration` resources using [Monthly
+   * billing](/domains/pricing#billing-models), this method works if: * `state` is
+   * `EXPORTED` with `expire_time` in the past * `state` is `REGISTRATION_FAILED`
+   * * `state` is `TRANSFER_FAILED` When an active registration is successfully
+   * deleted, you can continue to use the domain in [Google
+   * Domains](https://domains.google/) until it expires. The calling user becomes
+   * the domain's sole owner in Google Domains, and permissions for the domain are
+   * subsequently managed there. The domain does not renew automatically unless
+   * the new owner sets up billing in Google Domains. (registrations.delete)
    *
    * @param string $name Required. The name of the `Registration` to delete, in
    * the format `projects/locations/registrations`.
@@ -186,6 +188,25 @@ class ProjectsLocationsRegistrations extends \Google\Service\Resource
     $params = ['resource' => $resource];
     $params = array_merge($params, $optParams);
     return $this->call('getIamPolicy', [$params], Policy::class);
+  }
+  /**
+   * Imports a domain name from [Google Domains](https://domains.google/) for use
+   * in Cloud Domains. To transfer a domain from another registrar, use the
+   * `TransferDomain` method instead. Since individual users can own domains in
+   * Google Domains, the calling user must have ownership permission on the
+   * domain. (registrations.import)
+   *
+   * @param string $parent Required. The parent resource of the Registration. Must
+   * be in the format `projects/locations`.
+   * @param ImportDomainRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Operation
+   */
+  public function import($parent, ImportDomainRequest $postBody, $optParams = [])
+  {
+    $params = ['parent' => $parent, 'postBody' => $postBody];
+    $params = array_merge($params, $optParams);
+    return $this->call('import', [$params], Operation::class);
   }
   /**
    * Lists the `Registration` resources in a project.
@@ -301,6 +322,28 @@ class ProjectsLocationsRegistrations extends \Google\Service\Resource
     return $this->call('retrieveAuthorizationCode', [$params], AuthorizationCode::class);
   }
   /**
+   * Lists domain names from [Google Domains](https://domains.google/) that can be
+   * imported to Cloud Domains using the `ImportDomain` method. Since individual
+   * users can own domains in Google Domains, the list of domains returned depends
+   * on the individual user making the call. Domains already managed by Cloud
+   * Domains are not returned. (registrations.retrieveImportableDomains)
+   *
+   * @param string $location Required. The location. Must be in the format
+   * `projects/locations`.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param int pageSize Maximum number of results to return.
+   * @opt_param string pageToken When set to the `next_page_token` from a prior
+   * response, provides the next page of results.
+   * @return RetrieveImportableDomainsResponse
+   */
+  public function retrieveImportableDomains($location, $optParams = [])
+  {
+    $params = ['location' => $location];
+    $params = array_merge($params, $optParams);
+    return $this->call('retrieveImportableDomains', [$params], RetrieveImportableDomainsResponse::class);
+  }
+  /**
    * Gets parameters needed to register a new domain name, including price and up-
    * to-date availability. Use the returned values to call `RegisterDomain`.
    * (registrations.retrieveRegisterParameters)
@@ -321,8 +364,9 @@ class ProjectsLocationsRegistrations extends \Google\Service\Resource
   }
   /**
    * Gets parameters needed to transfer a domain name from another registrar to
-   * Cloud Domains. For domains managed by Google Domains, transferring to Cloud
-   * Domains is not supported. Use the returned values to call `TransferDomain`.
+   * Cloud Domains. For domains already managed by [Google
+   * Domains](https://domains.google/), use `ImportDomain` instead. Use the
+   * returned values to call `TransferDomain`.
    * (registrations.retrieveTransferParameters)
    *
    * @param string $location Required. The location. Must be in the format
@@ -402,12 +446,12 @@ class ProjectsLocationsRegistrations extends \Google\Service\Resource
   }
   /**
    * Transfers a domain name from another registrar to Cloud Domains. For domains
-   * managed by Google Domains, transferring to Cloud Domains is not supported.
-   * Before calling this method, go to the domain's current registrar to unlock
-   * the domain for transfer and retrieve the domain's transfer authorization
-   * code. Then call `RetrieveTransferParameters` to confirm that the domain is
-   * unlocked and to get values needed to build a call to this method. A
-   * successful call creates a `Registration` resource in state
+   * already managed by [Google Domains](https://domains.google/), use
+   * `ImportDomain` instead. Before calling this method, go to the domain's
+   * current registrar to unlock the domain for transfer and retrieve the domain's
+   * transfer authorization code. Then call `RetrieveTransferParameters` to
+   * confirm that the domain is unlocked and to get values needed to build a call
+   * to this method. A successful call creates a `Registration` resource in state
    * `TRANSFER_PENDING`. It can take several days to complete the transfer
    * process. The registrant can often speed up this process by approving the
    * transfer through the current registrar, either by clicking a link in an email

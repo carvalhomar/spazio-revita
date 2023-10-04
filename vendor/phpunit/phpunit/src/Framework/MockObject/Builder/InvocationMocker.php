@@ -171,9 +171,9 @@ final class InvocationMocker implements InvocationStubber, MethodNameMatch
     /**
      * @param mixed[] $arguments
      *
+     * @throws \PHPUnit\Framework\Exception
      * @throws MethodNameNotConfiguredException
      * @throws MethodParametersAlreadyConfiguredException
-     * @throws \PHPUnit\Framework\Exception
      *
      * @return $this
      */
@@ -189,11 +189,13 @@ final class InvocationMocker implements InvocationStubber, MethodNameMatch
     /**
      * @param array ...$arguments
      *
+     * @throws \PHPUnit\Framework\Exception
      * @throws MethodNameNotConfiguredException
      * @throws MethodParametersAlreadyConfiguredException
-     * @throws \PHPUnit\Framework\Exception
      *
      * @return $this
+     *
+     * @deprecated
      */
     public function withConsecutive(...$arguments): self
     {
@@ -222,9 +224,9 @@ final class InvocationMocker implements InvocationStubber, MethodNameMatch
     /**
      * @param Constraint|string $constraint
      *
-     * @throws MethodNameAlreadyConfiguredException
-     * @throws MethodCannotBeConfiguredException
      * @throws \PHPUnit\Framework\InvalidArgumentException
+     * @throws MethodCannotBeConfiguredException
+     * @throws MethodNameAlreadyConfiguredException
      *
      * @return $this
      */
@@ -235,10 +237,11 @@ final class InvocationMocker implements InvocationStubber, MethodNameMatch
         }
 
         $configurableMethodNames = array_map(
-            static function (ConfigurableMethod $configurable) {
+            static function (ConfigurableMethod $configurable)
+            {
                 return strtolower($configurable->getName());
             },
-            $this->configurableMethods
+            $this->configurableMethods,
         );
 
         if (is_string($constraint) && !in_array(strtolower($constraint), $configurableMethodNames, true)) {
@@ -297,7 +300,7 @@ final class InvocationMocker implements InvocationStubber, MethodNameMatch
             if (!$configuredMethod->mayReturn($value)) {
                 throw new IncompatibleReturnValueException(
                     $configuredMethod,
-                    $value
+                    $value,
                 );
             }
         }

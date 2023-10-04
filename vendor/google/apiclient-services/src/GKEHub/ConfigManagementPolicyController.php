@@ -41,11 +41,19 @@ class ConfigManagementPolicyController extends \Google\Collection
   /**
    * @var bool
    */
+  public $mutationEnabled;
+  /**
+   * @var bool
+   */
   public $referentialRulesEnabled;
   /**
    * @var bool
    */
   public $templateLibraryInstalled;
+  /**
+   * @var string
+   */
+  public $updateTime;
 
   /**
    * @param string
@@ -120,6 +128,20 @@ class ConfigManagementPolicyController extends \Google\Collection
   /**
    * @param bool
    */
+  public function setMutationEnabled($mutationEnabled)
+  {
+    $this->mutationEnabled = $mutationEnabled;
+  }
+  /**
+   * @return bool
+   */
+  public function getMutationEnabled()
+  {
+    return $this->mutationEnabled;
+  }
+  /**
+   * @param bool
+   */
   public function setReferentialRulesEnabled($referentialRulesEnabled)
   {
     $this->referentialRulesEnabled = $referentialRulesEnabled;
@@ -144,6 +166,20 @@ class ConfigManagementPolicyController extends \Google\Collection
   public function getTemplateLibraryInstalled()
   {
     return $this->templateLibraryInstalled;
+  }
+  /**
+   * @param string
+   */
+  public function setUpdateTime($updateTime)
+  {
+    $this->updateTime = $updateTime;
+  }
+  /**
+   * @return string
+   */
+  public function getUpdateTime()
+  {
+    return $this->updateTime;
   }
 }
 

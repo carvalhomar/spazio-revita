@@ -46,6 +46,10 @@ class GoogleCloudDialogflowCxV3Agent extends \Google\Collection
    * @var bool
    */
   public $enableStackdriverLogging;
+  protected $genAppBuilderSettingsType = GoogleCloudDialogflowCxV3AgentGenAppBuilderSettings::class;
+  protected $genAppBuilderSettingsDataType = '';
+  protected $gitIntegrationSettingsType = GoogleCloudDialogflowCxV3AgentGitIntegrationSettings::class;
+  protected $gitIntegrationSettingsDataType = '';
   /**
    * @var bool
    */
@@ -68,6 +72,8 @@ class GoogleCloudDialogflowCxV3Agent extends \Google\Collection
    * @var string[]
    */
   public $supportedLanguageCodes;
+  protected $textToSpeechSettingsType = GoogleCloudDialogflowCxV3TextToSpeechSettings::class;
+  protected $textToSpeechSettingsDataType = '';
   /**
    * @var string
    */
@@ -172,6 +178,34 @@ class GoogleCloudDialogflowCxV3Agent extends \Google\Collection
     return $this->enableStackdriverLogging;
   }
   /**
+   * @param GoogleCloudDialogflowCxV3AgentGenAppBuilderSettings
+   */
+  public function setGenAppBuilderSettings(GoogleCloudDialogflowCxV3AgentGenAppBuilderSettings $genAppBuilderSettings)
+  {
+    $this->genAppBuilderSettings = $genAppBuilderSettings;
+  }
+  /**
+   * @return GoogleCloudDialogflowCxV3AgentGenAppBuilderSettings
+   */
+  public function getGenAppBuilderSettings()
+  {
+    return $this->genAppBuilderSettings;
+  }
+  /**
+   * @param GoogleCloudDialogflowCxV3AgentGitIntegrationSettings
+   */
+  public function setGitIntegrationSettings(GoogleCloudDialogflowCxV3AgentGitIntegrationSettings $gitIntegrationSettings)
+  {
+    $this->gitIntegrationSettings = $gitIntegrationSettings;
+  }
+  /**
+   * @return GoogleCloudDialogflowCxV3AgentGitIntegrationSettings
+   */
+  public function getGitIntegrationSettings()
+  {
+    return $this->gitIntegrationSettings;
+  }
+  /**
    * @param bool
    */
   public function setLocked($locked)
@@ -254,6 +288,20 @@ class GoogleCloudDialogflowCxV3Agent extends \Google\Collection
   public function getSupportedLanguageCodes()
   {
     return $this->supportedLanguageCodes;
+  }
+  /**
+   * @param GoogleCloudDialogflowCxV3TextToSpeechSettings
+   */
+  public function setTextToSpeechSettings(GoogleCloudDialogflowCxV3TextToSpeechSettings $textToSpeechSettings)
+  {
+    $this->textToSpeechSettings = $textToSpeechSettings;
+  }
+  /**
+   * @return GoogleCloudDialogflowCxV3TextToSpeechSettings
+   */
+  public function getTextToSpeechSettings()
+  {
+    return $this->textToSpeechSettings;
   }
   /**
    * @param string

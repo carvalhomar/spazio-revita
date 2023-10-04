@@ -14,7 +14,7 @@ class MailController extends Controller
 
     public function store(Request $request)
     {
-        // var_dump($request->all());
+
         $request->validate([
             'name' => 'required',
             'email'=> 'required|email',
@@ -23,7 +23,7 @@ class MailController extends Controller
         ]);
 
         $contact = new ContactFormController($request);
-
+//        $contact->sendEmail();
         try {
 
             $contact->sendEmail();

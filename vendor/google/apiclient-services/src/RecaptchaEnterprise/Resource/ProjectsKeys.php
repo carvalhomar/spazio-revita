@@ -21,6 +21,7 @@ use Google\Service\RecaptchaEnterprise\GoogleCloudRecaptchaenterpriseV1Key;
 use Google\Service\RecaptchaEnterprise\GoogleCloudRecaptchaenterpriseV1ListKeysResponse;
 use Google\Service\RecaptchaEnterprise\GoogleCloudRecaptchaenterpriseV1Metrics;
 use Google\Service\RecaptchaEnterprise\GoogleCloudRecaptchaenterpriseV1MigrateKeyRequest;
+use Google\Service\RecaptchaEnterprise\GoogleCloudRecaptchaenterpriseV1RetrieveLegacySecretKeyResponse;
 use Google\Service\RecaptchaEnterprise\GoogleProtobufEmpty;
 
 /**
@@ -28,7 +29,7 @@ use Google\Service\RecaptchaEnterprise\GoogleProtobufEmpty;
  * Typical usage is:
  *  <code>
  *   $recaptchaenterpriseService = new Google\Service\RecaptchaEnterprise(...);
- *   $keys = $recaptchaenterpriseService->keys;
+ *   $keys = $recaptchaenterpriseService->projects_keys;
  *  </code>
  */
 class ProjectsKeys extends \Google\Service\Resource
@@ -115,9 +116,8 @@ class ProjectsKeys extends \Google\Service\Resource
    * Migrates an existing key from reCAPTCHA to reCAPTCHA Enterprise. Once a key
    * is migrated, it can be used from either product. SiteVerify requests are
    * billed as CreateAssessment calls. You must be authenticated as one of the
-   * current owners of the reCAPTCHA Site Key, and your user must have the
-   * reCAPTCHA Enterprise Admin IAM role in the destination project.
-   * (keys.migrate)
+   * current owners of the reCAPTCHA Key, and your user must have the reCAPTCHA
+   * Enterprise Admin IAM role in the destination project. (keys.migrate)
    *
    * @param string $name Required. The name of the key to be migrated, in the
    * format "projects/{project}/keys/{key}".
@@ -148,6 +148,22 @@ class ProjectsKeys extends \Google\Service\Resource
     $params = ['name' => $name, 'postBody' => $postBody];
     $params = array_merge($params, $optParams);
     return $this->call('patch', [$params], GoogleCloudRecaptchaenterpriseV1Key::class);
+  }
+  /**
+   * Returns the secret key related to the specified public key. You must use the
+   * legacy secret key only in a 3rd party integration with legacy reCAPTCHA.
+   * (keys.retrieveLegacySecretKey)
+   *
+   * @param string $key Required. The public key name linked to the requested
+   * secret key in the format "projects/{project}/keys/{key}".
+   * @param array $optParams Optional parameters.
+   * @return GoogleCloudRecaptchaenterpriseV1RetrieveLegacySecretKeyResponse
+   */
+  public function retrieveLegacySecretKey($key, $optParams = [])
+  {
+    $params = ['key' => $key];
+    $params = array_merge($params, $optParams);
+    return $this->call('retrieveLegacySecretKey', [$params], GoogleCloudRecaptchaenterpriseV1RetrieveLegacySecretKeyResponse::class);
   }
 }
 
